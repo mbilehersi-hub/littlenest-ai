@@ -1,737 +1,1337 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8"/>
+
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
 <title>LittleNest AI — The AI co-pilot for early childhood educators</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"/>
+
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0;}
+
 :root{
+
   --sage:#3D6B58;
+
   --sage-light:#EBF4EE;
+
   --sage-mid:#C6DFD0;
+
   --stone:#F7F5F0;
+
   --stone-dark:#EDE9E2;
+
   --ink:#1C1C1A;
+
   --ink-mid:#4A4A46;
+
   --ink-light:#888880;
+
   --sand:#FAF7F2;
+
   --warm:#D4956A;
+
   --warm-light:#FDF0E8;
+
   --blue:#2563A8;
+
   --blue-light:#EBF2FC;
+
   --r:12px;
+
   --r-lg:20px;
+
 }
+
 html{scroll-behavior:smooth;}
+
 body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);line-height:1.6;}
+
 a{color:inherit;text-decoration:none;}
 
 /* NAV */
+
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--stone-dark);padding:0 5%;}
+
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:60px;gap:32px;}
+
 .nav-logo{font-family:'DM Serif Display',serif;font-size:19px;color:var(--ink);flex-shrink:0;}
+
 .nav-logo span{color:var(--sage);}
+
 .nav-links{display:flex;gap:28px;margin-left:auto;}
+
 .nav-links a{font-size:13px;color:var(--ink-mid);font-weight:500;}
+
 .nav-links a:hover{color:var(--ink);}
+
 .nav-cta{display:flex;gap:10px;margin-left:20px;}
+
 .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:all 0.18s;}
+
 .btn-outline{background:transparent;border:1.5px solid var(--stone-dark);color:var(--ink);}
+
 .btn-outline:hover{border-color:#aaa;background:var(--stone);}
+
 .btn-sage{background:var(--sage);color:#fff;}
+
 .btn-sage:hover{background:#2F5444;}
+
 .btn-warm{background:var(--warm);color:#fff;}
+
 .btn-warm:hover{background:#C07A52;}
+
 .btn-lg{padding:13px 28px;font-size:15px;border-radius:10px;}
+
 .btn-xl{padding:15px 32px;font-size:16px;border-radius:12px;}
 
 /* SECTIONS */
+
 section{padding:80px 5%;}
+
 .container{max-width:1100px;margin:0 auto;}
+
 .section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;}
+
 .section-title{font-family:'DM Serif Display',serif;font-size:38px;line-height:1.2;color:var(--ink);margin-bottom:16px;}
+
 .section-sub{font-size:17px;color:var(--ink-mid);max-width:560px;line-height:1.7;}
+
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+
 .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+
 .four-col{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 
 /* HERO */
+
 .hero{background:var(--sand);padding:100px 5% 80px;border-bottom:1px solid var(--stone-dark);}
+
 .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;}
+
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--sage-light);color:var(--sage);font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:24px;}
+
 .hero-title{font-family:'DM Serif Display',serif;font-size:52px;line-height:1.12;color:var(--ink);margin-bottom:20px;}
+
 .hero-title em{color:var(--sage);font-style:normal;}
+
 .hero-sub{font-size:18px;color:var(--ink-mid);line-height:1.7;margin-bottom:32px;max-width:480px;}
+
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;}
+
 .hero-trust{display:flex;flex-wrap:wrap;gap:16px;}
+
 .trust-pill{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-light);}
+
 .trust-pill i{color:var(--sage);font-size:14px;}
 
 /* HERO VISUAL */
+
 .hero-visual{background:#fff;border:1px solid var(--stone-dark);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.07);}
+
 .hv-tabs{display:flex;border-bottom:1px solid var(--stone-dark);background:var(--stone);}
+
 .hv-tab{flex:1;padding:10px 0;font-size:11px;font-weight:600;text-align:center;color:var(--ink-light);cursor:pointer;border-bottom:2px solid transparent;}
+
 .hv-tab.active{background:#fff;color:var(--sage);border-bottom-color:var(--sage);}
+
 .hv-body{padding:18px;}
+
 .chip{display:inline-block;font-size:10px;padding:3px 8px;border-radius:20px;margin-bottom:6px;font-weight:500;}
+
 .chip-sage{background:var(--sage-light);color:var(--sage);}
+
 .chip-warm{background:var(--warm-light);color:var(--warm);}
+
 .chip-blue{background:var(--blue-light);color:var(--blue);}
+
 .chip-stone{background:var(--stone-dark);color:var(--ink-mid);}
+
 .ai-bubble{background:var(--sage-light);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--ink);line-height:1.6;margin-top:8px;border-left:3px solid var(--sage);}
+
 .ai-bubble-label{font-size:10px;font-weight:600;color:var(--sage);margin-bottom:4px;}
+
 .mini-input{width:100%;padding:8px 12px;border:1px solid var(--stone-dark);border-radius:8px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--ink);background:#fff;margin-bottom:6px;}
+
 .mini-input:focus{outline:none;border-color:var(--sage);}
+
 .week-row{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px;}
+
 .day-block{background:var(--stone);border-radius:7px;padding:7px 6px;}
+
 .day-name{font-size:9px;font-weight:600;color:var(--ink-light);margin-bottom:5px;text-align:center;}
+
 .day-act{font-size:9px;padding:2px 5px;border-radius:4px;margin-bottom:3px;display:block;}
 
 /* PROBLEM BAR */
+
 .problem-bar{background:var(--ink);padding:48px 5%;text-align:center;}
+
 .problem-bar .container{max-width:900px;}
+
 .problem-bar h2{font-family:'DM Serif Display',serif;font-size:30px;color:#fff;margin-bottom:12px;}
+
 .problem-bar p{font-size:16px;color:rgba(255,255,255,0.65);max-width:640px;margin:0 auto;}
 
 /* WHO */
+
 .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+
 .who-card{border:1.5px solid var(--stone-dark);border-radius:var(--r-lg);padding:28px;background:#fff;transition:border-color 0.2s,box-shadow 0.2s;}
+
 .who-card:hover{border-color:var(--sage-mid);box-shadow:0 4px 16px rgba(61,107,88,0.08);}
+
 .who-icon{width:44px;height:44px;border-radius:10px;background:var(--sage-light);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+
 .who-icon i{font-size:22px;color:var(--sage);}
+
 .who-title{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+
 .who-desc{font-size:13px;color:var(--ink-mid);line-height:1.7;}
+
 .who-features{margin-top:14px;display:flex;flex-direction:column;gap:5px;}
+
 .who-feat{font-size:12px;color:var(--ink-mid);display:flex;align-items:center;gap:6px;}
+
 .who-feat i{color:var(--sage);font-size:13px;flex-shrink:0;}
 
 /* FEATURES */
+
 .feat-section{background:var(--sand);}
+
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+
 .feat-card{background:#fff;border:1px solid var(--stone-dark);border-radius:var(--r-lg);padding:24px;transition:box-shadow 0.2s;}
+
 .feat-card:hover{box-shadow:0 6px 20px rgba(0,0,0,0.07);}
+
 .feat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+
 .feat-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+
 .feat-desc{font-size:13px;color:var(--ink-mid);line-height:1.65;}
+
 .feat-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-top:12px;}
 
 /* LIVE DEMO STRIP */
+
 .demo-strip{background:#fff;border-top:1px solid var(--stone-dark);border-bottom:1px solid var(--stone-dark);padding:64px 5%;}
+
 .demo-inner{max-width:1100px;margin:0 auto;}
+
 .demo-box{background:var(--sand);border:1px solid var(--stone-dark);border-radius:var(--r-lg);padding:28px;max-width:720px;margin:32px auto 0;}
+
 .demo-row{display:flex;gap:10px;margin-bottom:12px;}
+
 .demo-input{flex:1;padding:10px 14px;border:1px solid var(--stone-dark);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);}
+
 .demo-input:focus{outline:none;border-color:var(--sage);}
+
 .demo-select{padding:10px 14px;border:1px solid var(--stone-dark);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;background:#fff;color:var(--ink);}
+
 .demo-output{background:#fff;border:1px solid var(--stone-dark);border-radius:10px;padding:16px;font-size:13px;color:var(--ink);line-height:1.7;min-height:80px;}
+
 .demo-output.empty{color:var(--ink-light);}
+
 .loading-text::after{content:'.';animation:ld 1.2s infinite;}
+
 @keyframes ld{0%{content:'.';}33%{content:'..';}66%{content:'...';}100%{content:'.'}}
 
 /* COMPARE */
+
 .compare-section{background:var(--stone);}
+
 .compare-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--stone-dark);margin-top:40px;}
+
 .compare-col{background:#fff;}
+
 .compare-col.highlight{background:var(--sage);color:#fff;}
+
 .compare-head{padding:24px 20px;border-bottom:1px solid var(--stone-dark);}
+
 .compare-col.highlight .compare-head{border-bottom-color:rgba(255,255,255,0.2);}
+
 .compare-name{font-size:15px;font-weight:600;margin-bottom:4px;}
+
 .compare-price{font-size:13px;color:var(--ink-light);}
+
 .compare-col.highlight .compare-price{color:rgba(255,255,255,0.7);}
+
 .compare-rows{padding:8px 0;}
+
 .compare-row{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;border-bottom:1px solid var(--stone-dark);}
+
 .compare-col.highlight .compare-row{border-bottom-color:rgba(255,255,255,0.12);color:#fff;}
+
 .compare-row i{font-size:16px;flex-shrink:0;}
+
 .ci-yes{color:var(--sage);}
+
 .compare-col.highlight .ci-yes{color:#a8e6cc;}
+
 .ci-no{color:#ccc;}
+
 .compare-col.highlight .ci-no{color:rgba(255,255,255,0.3);}
 
-/* FOUNDER */
-.founder-section{background:#fff;}
-.founder-card{background:var(--sand);border:1px solid var(--stone-dark);border-radius:var(--r-lg);padding:40px 44px;max-width:800px;margin:40px auto 0;display:flex;gap:32px;align-items:flex-start;}
-.founder-avatar{width:72px;height:72px;border-radius:50%;background:var(--sage-light);display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:26px;color:var(--sage);flex-shrink:0;}
-.founder-name{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:2px;}
-.founder-role{font-size:12px;color:var(--ink-light);margin-bottom:16px;}
-.founder-quote{font-size:15px;color:var(--ink-mid);line-height:1.75;font-style:italic;}
-.founder-cred{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
-.cred-tag{font-size:11px;background:var(--sage-light);color:var(--sage);padding:3px 10px;border-radius:20px;font-weight:500;}
-
 /* PRICING */
+
 .pricing-section{background:var(--sand);border-top:1px solid var(--stone-dark);}
+
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
+
 .price-card{background:#fff;border:1.5px solid var(--stone-dark);border-radius:var(--r-lg);padding:28px;position:relative;}
+
 .price-card.featured{border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-light);}
+
 .price-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--sage);color:#fff;font-size:11px;font-weight:600;padding:3px 14px;border-radius:20px;}
+
 .price-name{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+
 .price-amount{font-family:'DM Serif Display',serif;font-size:38px;color:var(--ink);}
+
 .price-period{font-size:13px;color:var(--ink-light);}
+
 .price-desc{font-size:13px;color:var(--ink-mid);margin:10px 0 16px;}
+
 .price-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+
 .price-feat{font-size:13px;color:var(--ink-mid);display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+
 .price-feat i{color:var(--sage);font-size:14px;margin-top:2px;flex-shrink:0;}
+
 .price-card.featured .price-feat i{color:var(--sage);}
 
 /* TRUST */
+
 .trust-section{background:var(--ink);padding:64px 5%;text-align:center;}
+
 .trust-section .section-title{color:#fff;}
+
 .trust-section .section-sub{color:rgba(255,255,255,0.6);margin:0 auto 40px;}
+
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:0;}
+
 .trust-item{padding:24px;background:rgba(255,255,255,0.05);border-radius:var(--r);border:1px solid rgba(255,255,255,0.08);}
+
 .trust-item i{font-size:26px;color:var(--sage-mid);margin-bottom:12px;}
+
 .trust-item-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;}
+
 .trust-item-desc{font-size:12px;color:rgba(255,255,255,0.55);line-height:1.6;}
 
 /* CTA */
+
 .cta-section{background:var(--sage);padding:80px 5%;text-align:center;}
+
 .cta-section h2{font-family:'DM Serif Display',serif;font-size:42px;color:#fff;margin-bottom:16px;}
+
 .cta-section p{font-size:17px;color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto 32px;}
+
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
 .btn-white{background:#fff;color:var(--sage);border:none;}
+
 .btn-white:hover{background:var(--stone);}
+
 .btn-outline-white{background:transparent;border:2px solid rgba(255,255,255,0.5);color:#fff;}
+
 .btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
 
 /* FOOTER */
+
 footer{background:var(--ink);padding:48px 5% 32px;border-top:1px solid rgba(255,255,255,0.06);}
+
 .footer-inner{max-width:1100px;margin:0 auto;}
+
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+
 .footer-logo{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:10px;}
+
 .footer-logo span{color:var(--sage-mid);}
+
 .footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;max-width:260px;}
+
 .footer-col-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);margin-bottom:14px;}
+
 .footer-links{display:flex;flex-direction:column;gap:8px;}
+
 .footer-links a{font-size:13px;color:rgba(255,255,255,0.5);}
+
 .footer-links a:hover{color:rgba(255,255,255,0.85);}
+
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+
 .footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+
 .footer-legal{display:flex;gap:20px;}
+
 .footer-legal a{font-size:12px;color:rgba(255,255,255,0.3);}
+
 .footer-legal a:hover{color:rgba(255,255,255,0.6);}
 
 /* DIVIDER */
+
 .divider{height:1px;background:var(--stone-dark);max-width:1100px;margin:0 auto;}
 
 @media(max-width:900px){
+
   .hero-inner,.two-col,.three-col,.four-col,.who-grid,.feat-grid,.pricing-grid,.compare-grid,.trust-grid,.footer-top{grid-template-columns:1fr;}
+
   .hero-title{font-size:36px;}
+
   .section-title{font-size:28px;}
+
   .nav-links{display:none;}
+
   .week-row{grid-template-columns:repeat(5,1fr);}
-  .founder-card{flex-direction:column;}
+
 }
+
 </style>
+
 </head>
+
 <body>
 
 <!-- NAV -->
+
 <nav>
+
   <div class="nav-inner">
+
     <div class="nav-logo">LittleNest <span>AI</span></div>
+
     <div class="nav-links">
+
       <a href="#features">Features</a>
+
       <a href="#who">Who it's for</a>
+
       <a href="#demo">Try it live</a>
+
       <a href="#pricing">Pricing</a>
-      <a href="#founder">About</a>
+
     </div>
+
     <div class="nav-cta">
+
       <a href="https://daycares.littlenestfinder.com/search" class="btn btn-outline">Find childcare</a>
+
       <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-sage">Start free trial</a>
+
     </div>
+
   </div>
+
 </nav>
 
 <!-- HERO -->
+
 <section class="hero">
+
   <div class="hero-inner">
+
     <div>
+
       <div class="hero-eyebrow"><i class="ti ti-sparkles"></i>Now onboarding founding partners across Canada</div>
+
       <h1 class="hero-title">The AI co-pilot for <em>early childhood</em> educators</h1>
+
       <p class="hero-sub">Save hours every week on documentation, program planning, family communication, and staff support — all in one platform built for Canadian childcare centers.</p>
+
       <div class="hero-ctas">
+
         <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-sage btn-lg"><i class="ti ti-rocket"></i>Start free trial</a>
+
         <a href="#demo" class="btn btn-outline btn-lg"><i class="ti ti-player-play"></i>See it live</a>
+
       </div>
+
       <div class="hero-trust">
+
         <div class="trust-pill"><i class="ti ti-check"></i>No credit card needed</div>
+
         <div class="trust-pill"><i class="ti ti-check"></i>Built for Canadian childcare</div>
+
         <div class="trust-pill"><i class="ti ti-check"></i>PIPEDA-aligned</div>
+
         <div class="trust-pill"><i class="ti ti-check"></i>Educator-reviewed AI always</div>
+
       </div>
+
     </div>
+
     <div class="hero-visual">
+
       <div class="hv-tabs">
+
         <div class="hv-tab active" onclick="hvTab(this,'doc')">AI writing</div>
+
         <div class="hv-tab" onclick="hvTab(this,'plan')">Week plan</div>
+
         <div class="hv-tab" onclick="hvTab(this,'qa')">Ask AI</div>
+
       </div>
+
       <div class="hv-body" id="hv-doc">
+
         <div style="font-size:11px;font-weight:600;color:var(--ink-light);margin-bottom:8px;">Learning story generator</div>
+
         <input class="mini-input" id="hv-obs" placeholder="Describe what you observed (rough notes OK)…"/>
+
         <div style="display:flex;gap:6px;margin-bottom:8px;">
+
           <select class="mini-input" id="hv-age" style="flex:1;">
+
             <option>Toddler (18m–3y)</option><option>Preschool (3–5y)</option><option>Infant (0–18m)</option>
+
           </select>
+
           <button class="btn btn-sage" style="padding:6px 14px;font-size:11px;" onclick="hvGenerate()"><i class="ti ti-sparkles"></i>Write</button>
+
         </div>
+
         <div class="ai-bubble" id="hv-output">
+
           <div class="ai-bubble-label">AI learning story — educator reviews before sharing</div>
+
           <span style="color:var(--ink-light);font-size:12px;">Describe an observation above and click Write…</span>
+
         </div>
+
       </div>
+
       <div class="hv-body" id="hv-plan" style="display:none;">
+
         <div style="font-size:11px;font-weight:600;color:var(--ink-light);margin-bottom:10px;">Weekly program plan — Bluebird Room</div>
+
         <div class="week-row">
+
           <div class="day-block"><div class="day-name">MON</div><span class="day-act chip-sage chip">Circle</span><span class="day-act chip-blue chip">Water</span></div>
+
           <div class="day-block"><div class="day-name">TUE</div><span class="day-act chip-warm chip">Puppets</span><span class="day-act chip-sage chip">Numbers</span></div>
+
           <div class="day-block"><div class="day-name">WED</div><span class="day-act chip-stone chip">Nature</span><span class="day-act chip-sage chip">Letters</span></div>
+
           <div class="day-block"><div class="day-name">THU</div><span class="day-act chip-warm chip">Drama</span><span class="day-act chip-blue chip">Patterns</span></div>
+
           <div class="day-block"><div class="day-name">FRI</div><span class="day-act chip-sage chip">Reflect</span><span class="day-act chip-warm chip">Music</span></div>
+
         </div>
+
         <button class="btn btn-sage" style="margin-top:12px;font-size:11px;width:100%;" onclick="hvPlan()"><i class="ti ti-sparkles"></i>Regenerate with AI</button>
+
         <div class="ai-bubble" id="hv-plan-output" style="margin-top:10px;display:none;"></div>
+
       </div>
+
       <div class="hv-body" id="hv-qa" style="display:none;">
+
         <div style="font-size:11px;font-weight:600;color:var(--ink-light);margin-bottom:8px;">Ask anything — for educators &amp; supply teachers</div>
+
         <div id="hv-qa-thread" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px;max-height:160px;overflow-y:auto;">
+
           <div style="background:#fff;border:1px solid var(--stone-dark);border-radius:8px;padding:9px 12px;font-size:12px;color:var(--ink-mid);">Hi! Ask me anything about ECE practice, curriculum, behaviour support, or documentation. I'm here for lead educators, supply teachers, and new staff alike.</div>
+
         </div>
+
         <div style="display:flex;gap:6px;">
+
           <input class="mini-input" id="hv-qa-input" placeholder="e.g. How do I support a child having big emotions?" onkeydown="if(event.key==='Enter')hvQA()" style="margin:0;"/>
+
           <button class="btn btn-sage" style="padding:6px 12px;font-size:11px;flex-shrink:0;" onclick="hvQA()"><i class="ti ti-send"></i></button>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- PROBLEM BAR -->
+
 <div class="problem-bar">
+
   <div class="container">
+
     <h2>Educators spend 4–6 hours a week on documentation alone.</h2>
+
     <p>That's time taken away from children — written up after hours, on personal time. LittleNest AI gives those hours back.</p>
+
   </div>
+
 </div>
 
 <!-- WHO IT'S FOR -->
+
 <section id="who" style="background:#fff;">
+
   <div class="container">
+
     <div class="section-eyebrow">Who it's for</div>
+
     <h2 class="section-title">Built for everyone in the building</h2>
+
     <p class="section-sub">One platform — different tools depending on your role. No training required.</p>
+
     <div class="who-grid">
+
       <div class="who-card">
+
         <div class="who-icon"><i class="ti ti-users"></i></div>
+
         <div class="who-title">Lead educators & RECEs</div>
+
         <div class="who-desc">Plan your program, write learning stories, document observations, and support families — faster and better with AI.</div>
+
         <div class="who-features">
+
           <div class="who-feat"><i class="ti ti-check"></i>Weekly program planner</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>AI learning story writer</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Child portfolio & photos</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Family communication drafts</div>
+
         </div>
+
       </div>
+
       <div class="who-card">
+
         <div class="who-icon"><i class="ti ti-user-star"></i></div>
+
         <div class="who-title">Supply teachers</div>
+
         <div class="who-desc">Walk into any room with confidence. Get the room's routines, activities, and expectations — and get AI support right away.</div>
+
         <div class="who-features">
+
           <div class="who-feat"><i class="ti ti-check"></i>Room orientation guide</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Ready-to-use activity ideas</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Behaviour support tips</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Ask AI any question instantly</div>
+
         </div>
+
       </div>
+
       <div class="who-card">
+
         <div class="who-icon"><i class="ti ti-building-community"></i></div>
+
         <div class="who-title">Directors & administration</div>
+
         <div class="who-desc">Review documentation, track staff, generate newsletters and meeting agendas, and stay on top of licensing — without the chaos.</div>
+
         <div class="who-features">
+
           <div class="who-feat"><i class="ti ti-check"></i>Documentation overview</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>Staff tracking</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>AI newsletter & agenda drafts</div>
+
           <div class="who-feat"><i class="ti ti-check"></i>CCEYA compliance reminders</div>
+
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- FEATURES -->
+
 <section class="feat-section" id="features">
+
   <div class="container">
+
     <div class="section-eyebrow">Platform features</div>
+
     <h2 class="section-title">Everything in one place</h2>
+
     <p class="section-sub">Eight tools working together — not eight apps to switch between.</p>
+
     <div class="feat-grid">
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--sage-light);"><i class="ti ti-writing" style="color:var(--sage);font-size:20px;"></i></div>
+
         <div class="feat-title">AI documentation writer</div>
+
         <div class="feat-desc">Rough notes → professional learning story, observation, progress note, or anecdotal record in seconds. Educator reviews before sharing.</div>
+
         <span class="feat-tag" style="background:var(--sage-light);color:var(--sage);">Core feature</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:#EBF2FC;"><i class="ti ti-calendar-week" style="color:var(--blue);font-size:20px;"></i></div>
+
         <div class="feat-title">Weekly program planner</div>
+
         <div class="feat-desc">Choose age group, theme, and interests. AI generates a full 5-day plan with activities, materials, and ELECT-aligned learning goals.</div>
+
         <span class="feat-tag" style="background:#EBF2FC;color:var(--blue);">AI-powered</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--warm-light);"><i class="ti ti-photo" style="color:var(--warm);font-size:20px;"></i></div>
+
         <div class="feat-title">Easy photo upload & portfolio</div>
+
         <div class="feat-desc">Upload photos directly to a child's portfolio. AI suggests tags, activity type, and curriculum domain. Families see only what you approve.</div>
+
         <span class="feat-tag" style="background:var(--warm-light);color:var(--warm);">Simple upload</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--sage-light);"><i class="ti ti-message-question" style="color:var(--sage);font-size:20px;"></i></div>
+
         <div class="feat-title">Ask AI — instant support</div>
+
         <div class="feat-desc">"How do I support a biting child?" or "What activity for a rainy Friday?" — educators get immediate, practical, ECE-grounded answers.</div>
+
         <span class="feat-tag" style="background:var(--sage-light);color:var(--sage);">Always available</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:#EBF2FC;"><i class="ti ti-books" style="color:var(--blue);font-size:20px;"></i></div>
+
         <div class="feat-title">Curriculum resource hub</div>
+
         <div class="feat-desc">Searchable library of activities, milestones, behaviour support strategies, outdoor ideas, sensory play, and ELECT/HDLH references.</div>
+
         <span class="feat-tag" style="background:#EBF2FC;color:var(--blue);">ELECT + HDLH</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--warm-light);"><i class="ti ti-language" style="color:var(--warm);font-size:20px;"></i></div>
+
         <div class="feat-title">Multilingual translation</div>
+
         <div class="feat-desc">Translate newsletters, consent forms, and family messages into French, Somali, Arabic, Kirundi, Tigrinya, and more — in one click.</div>
+
         <span class="feat-tag" style="background:var(--warm-light);color:var(--warm);">10+ languages</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--sage-light);"><i class="ti ti-school" style="color:var(--sage);font-size:20px;"></i></div>
+
         <div class="feat-title">Staff & supply teacher learning</div>
+
         <div class="feat-desc">Micro-learning on behaviour guidance, documentation, inclusion, and child development. Progress tracking and certificates for your team.</div>
+
         <span class="feat-tag" style="background:var(--sage-light);color:var(--sage);">Professional dev</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:#EBF2FC;"><i class="ti ti-layout-dashboard" style="color:var(--blue);font-size:20px;"></i></div>
+
         <div class="feat-title">Administration dashboard</div>
+
         <div class="feat-desc">Track documentation status, attendance, staff notes, and licensing deadlines. AI drafts newsletters, meeting agendas, and compliance checklists.</div>
+
         <span class="feat-tag" style="background:#EBF2FC;color:var(--blue);">Director tools</span>
+
       </div>
+
       <div class="feat-card">
+
         <div class="feat-icon" style="background:var(--warm-light);"><i class="ti ti-search" style="color:var(--warm);font-size:20px;"></i></div>
+
         <div class="feat-title">Family childcare finder</div>
+
         <div class="feat-desc">Families search for licensed daycare spots near home or work. Providers manage availability and parent inquiries in one inbox — no spreadsheets.</div>
+
         <span class="feat-tag" style="background:var(--warm-light);color:var(--warm);">For families</span>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- LIVE DEMO -->
+
 <section class="demo-strip" id="demo">
+
   <div class="demo-inner" style="text-align:center;">
+
     <div class="section-eyebrow">Try it live — no account needed</div>
+
     <h2 class="section-title" style="font-size:32px;">See the AI write a real learning story</h2>
+
     <p class="section-sub" style="margin:0 auto 0;">Describe a real observation — the AI will write a professional, warm learning story in seconds.</p>
+
     <div class="demo-box">
+
       <div style="display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+
         <select class="demo-select" id="demo-age">
+
           <option>Infant (0–18m)</option>
+
           <option>Toddler (18m–3y)</option>
+
           <option selected>Preschool (3–5y)</option>
+
         </select>
+
         <select class="demo-select" id="demo-type">
+
           <option>Learning story</option>
+
           <option>Observation note</option>
+
           <option>Progress note</option>
+
           <option>Family update</option>
+
         </select>
+
       </div>
+
       <textarea class="demo-input" id="demo-obs" style="min-height:70px;resize:vertical;display:block;width:100%;margin-bottom:10px;" placeholder="Describe what you observed — rough notes are fine. E.g. 'Amara spent 20 min at water table, kept asking where did the water go, filled and poured repeatedly…'"></textarea>
+
       <button class="btn btn-sage" style="width:100%;padding:12px;font-size:14px;" onclick="demoGenerate()"><i class="ti ti-sparkles"></i>Generate learning story</button>
+
       <div class="demo-output empty" id="demo-output" style="margin-top:14px;white-space:pre-line;">Your AI-generated documentation will appear here. The AI writes in warm, professional language aligned with How Does Learning Happen? and ELECT.</div>
+
       <div id="demo-actions" style="display:none;margin-top:10px;display:flex;gap:8px;justify-content:flex-end;">
+
         <button class="btn btn-outline" onclick="copyDemo()"><i class="ti ti-copy"></i>Copy</button>
+
         <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-sage">Save to child portfolio →</a>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- COMPARE -->
-<section class="compare-section" id="compare">
-  <div class="container" style="text-align:center;">
-    <div class="section-eyebrow">Why LittleNest AI</div>
-    <h2 class="section-title">Built differently from the rest</h2>
-    <p class="section-sub" style="margin:0 auto 0;">Other platforms do attendance or photo sharing. LittleNest AI focuses on what educators actually need — writing, planning, and support.</p>
-    <div class="compare-grid">
-      <div class="compare-col">
-        <div class="compare-head"><div class="compare-name">Brightwheel / HiMama</div><div class="compare-price">Parent communication focus</div></div>
-        <div class="compare-rows">
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Attendance & billing</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo sharing</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>AI documentation writer</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Weekly program planner</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Supply teacher support</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Curriculum resource hub</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Multilingual translation</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Instant Ask AI assistant</div>
-        </div>
-      </div>
-      <div class="compare-col highlight">
-        <div class="compare-head"><div class="compare-name">LittleNest AI ✦</div><div class="compare-price">AI co-pilot for educators</div></div>
-        <div class="compare-rows">
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Attendance & admin tools</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo upload & portfolios</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>AI documentation writer</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Weekly program planner</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Supply teacher support</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Curriculum resource hub</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Multilingual translation</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Instant Ask AI assistant</div>
-        </div>
-      </div>
-      <div class="compare-col">
-        <div class="compare-head"><div class="compare-name">Storypark / Lillio</div><div class="compare-price">Portfolio & documentation</div></div>
-        <div class="compare-rows">
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Attendance & billing</div>
-          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo sharing</div>
-          <div class="compare-row"><i class="ti ti-minus" style="color:#ccc;"></i>Basic doc templates</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Weekly program planner</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Supply teacher support</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Curriculum resource hub</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Multilingual translation</div>
-          <div class="compare-row"><i class="ti ti-x ci-no"></i>Instant Ask AI assistant</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOUNDER -->
-<section class="founder-section" id="founder">
+<section class="compare-section" id="compare">
+
   <div class="container" style="text-align:center;">
-    <div class="section-eyebrow">Why we built this</div>
-    <h2 class="section-title">From a Canadian educator, for Canadian educators</h2>
-    <div class="founder-card">
-      <div class="founder-avatar">MA</div>
-      <div>
-        <div class="founder-name">Mariam Aden</div>
-        <div class="founder-role">Founder, LittleNest AI · Family Navigator, RECE · Ottawa, Ontario</div>
-        <div class="founder-quote">"I work in early childhood every day. I see how much time educators lose to documentation, planning, and admin — time that should be with children. LittleNest AI is the tool I wished existed. We're building it with real educators, for real classrooms, grounded in Canadian curriculum and the families we serve."</div>
-        <div class="founder-cred">
-          <span class="cred-tag">RECE certified</span>
-          <span class="cred-tag">Honours B.A. Psychology</span>
-          <span class="cred-tag">ECE family navigator</span>
-          <span class="cred-tag">Trilingual: EN · FR · Somali</span>
-          <span class="cred-tag">Ottawa, ON</span>
+
+    <div class="section-eyebrow">Why LittleNest AI</div>
+
+    <h2 class="section-title">Built differently from the rest</h2>
+
+    <p class="section-sub" style="margin:0 auto 0;">Other platforms do attendance or photo sharing. LittleNest AI focuses on what educators actually need — writing, planning, and support.</p>
+
+    <div class="compare-grid">
+
+      <div class="compare-col">
+
+        <div class="compare-head"><div class="compare-name">Brightwheel / HiMama</div><div class="compare-price">Parent communication focus</div></div>
+
+        <div class="compare-rows">
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Attendance & billing</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo sharing</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>AI documentation writer</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Weekly program planner</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Supply teacher support</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Curriculum resource hub</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Multilingual translation</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Instant Ask AI assistant</div>
+
         </div>
+
       </div>
+
+      <div class="compare-col highlight">
+
+        <div class="compare-head"><div class="compare-name">LittleNest AI ✦</div><div class="compare-price">AI co-pilot for educators</div></div>
+
+        <div class="compare-rows">
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Attendance & admin tools</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo upload & portfolios</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>AI documentation writer</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Weekly program planner</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Supply teacher support</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Curriculum resource hub</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Multilingual translation</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Instant Ask AI assistant</div>
+
+        </div>
+
+      </div>
+
+      <div class="compare-col">
+
+        <div class="compare-head"><div class="compare-name">Storypark / Lillio</div><div class="compare-price">Portfolio & documentation</div></div>
+
+        <div class="compare-rows">
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Attendance & billing</div>
+
+          <div class="compare-row"><i class="ti ti-check ci-yes"></i>Photo sharing</div>
+
+          <div class="compare-row"><i class="ti ti-minus" style="color:#ccc;"></i>Basic doc templates</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Weekly program planner</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Supply teacher support</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Curriculum resource hub</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Multilingual translation</div>
+
+          <div class="compare-row"><i class="ti ti-x ci-no"></i>Instant Ask AI assistant</div>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- PRICING -->
+
 <section class="pricing-section" id="pricing">
+
   <div class="container" style="text-align:center;">
+
     <div class="section-eyebrow">Pricing</div>
+
     <h2 class="section-title">Simple, transparent plans</h2>
+
     <p class="section-sub" style="margin:0 auto 0;">Start free. Pay as you grow. No contracts, no surprises.</p>
+
     <div class="pricing-grid" style="margin-top:48px;">
+
       <div class="price-card">
+
         <div class="price-name">Starter</div>
+
         <div><span class="price-amount">Free</span></div>
+
         <div class="price-desc">For individual educators exploring the platform.</div>
+
         <div class="price-features">
+
           <div class="price-feat"><i class="ti ti-check"></i>AI documentation writer (5/month)</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Ask AI assistant</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Curriculum resource hub</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>1 educator account</div>
+
         </div>
+
         <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-outline" style="width:100%;justify-content:center;">Get started free</a>
+
       </div>
+
       <div class="price-card featured">
+
         <div class="price-badge">Most popular</div>
+
         <div class="price-name">Professional</div>
+
         <div><span class="price-amount">$49</span><span class="price-period">/month per room</span></div>
+
         <div class="price-desc">For a full room team — everything you need daily.</div>
+
         <div class="price-features">
+
           <div class="price-feat"><i class="ti ti-check"></i>Unlimited AI documentation</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Weekly program planner</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Photo upload & child portfolios</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Supply teacher mode</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Multilingual translation</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Up to 5 educator accounts</div>
+
         </div>
+
         <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-sage" style="width:100%;justify-content:center;">Start free trial</a>
+
       </div>
+
       <div class="price-card">
+
         <div class="price-name">Center</div>
+
         <div><span class="price-amount">$129</span><span class="price-period">/month</span></div>
+
         <div class="price-desc">For full childcare centers — all rooms, all staff, full admin.</div>
+
         <div class="price-features">
+
           <div class="price-feat"><i class="ti ti-check"></i>Everything in Professional</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Administration dashboard</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Staff learning & certificates</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>CCEYA compliance reminders</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Unlimited educator accounts</div>
+
           <div class="price-feat"><i class="ti ti-check"></i>Priority support</div>
+
         </div>
+
         <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-outline" style="width:100%;justify-content:center;">Book a demo</a>
+
       </div>
+
     </div>
+
     <p style="font-size:13px;color:var(--ink-light);margin-top:20px;">Founding partner pricing available — <a href="https://calendly.com/mariam-aden" style="color:var(--sage);">book a call with Mariam</a> to lock in your rate.</p>
+
   </div>
+
 </section>
 
 <!-- TRUST -->
+
 <section class="trust-section">
+
   <div class="container">
+
     <div class="section-eyebrow" style="color:var(--sage-mid);">Trust & safety</div>
+
     <h2 class="section-title">Built with child safety and educator trust at the core</h2>
+
     <p class="section-sub">Every AI feature is designed around one principle: educators review everything before it reaches a child or family.</p>
+
     <div class="trust-grid">
+
       <div class="trust-item"><i class="ti ti-eye-check"></i><div class="trust-item-title">Educator-reviewed AI</div><div class="trust-item-desc">All AI-generated content is drafted for the educator to review and edit. Nothing goes to families without your approval.</div></div>
+
       <div class="trust-item"><i class="ti ti-shield-lock"></i><div class="trust-item-title">Child data safety</div><div class="trust-item-desc">We never store identifiable child information. Documentation uses age groups and general descriptors only.</div></div>
+
       <div class="trust-item"><i class="ti ti-certificate"></i><div class="trust-item-title">Canadian privacy compliance</div><div class="trust-item-desc">Built in line with PIPEDA and provincial childcare guidelines. Data stays in Canada.</div></div>
+
       <div class="trust-item"><i class="ti ti-license"></i><div class="trust-item-title">Licensed daycares only</div><div class="trust-item-desc">We onboard only licensed, regulated childcare providers. Every partner is verified before publishing.</div></div>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- FINAL CTA -->
+
 <section class="cta-section">
+
   <div class="container">
+
     <h2>Ready to give your educators their time back?</h2>
+
     <p>Join founding childcare centers across Canada. Set up in minutes — no training required.</p>
+
     <div class="cta-btns">
+
       <a href="https://daycares.littlenestfinder.com/operators" class="btn btn-white btn-xl"><i class="ti ti-rocket"></i>Start free trial</a>
+
       <a href="https://calendly.com/mariam-aden" class="btn btn-outline-white btn-xl"><i class="ti ti-calendar"></i>Book a call with Mariam</a>
+
       <a href="https://daycares.littlenestfinder.com/search" class="btn btn-outline-white btn-xl"><i class="ti ti-search"></i>Find childcare (for parents)</a>
+
     </div>
+
   </div>
+
 </section>
 
 <!-- FOOTER -->
+
 <footer>
+
   <div class="footer-inner">
+
     <div class="footer-top">
+
       <div>
+
         <div class="footer-logo">LittleNest <span>AI</span></div>
+
         <div class="footer-tagline">The AI co-pilot for early childhood educators and childcare centers across Canada. Built by an educator, for educators.</div>
+
       </div>
+
       <div>
+
         <div class="footer-col-title">For educators</div>
+
         <div class="footer-links">
+
           <a href="https://daycares.littlenestfinder.com/ai-helper">AI documentation</a>
+
           <a href="#features">Program planner</a>
+
           <a href="#features">Ask AI</a>
+
           <a href="#features">Curriculum resources</a>
+
           <a href="#features">Supply teacher mode</a>
+
         </div>
+
       </div>
+
       <div>
+
         <div class="footer-col-title">For centers</div>
+
         <div class="footer-links">
+
           <a href="https://daycares.littlenestfinder.com/operators">For daycare owners</a>
+
           <a href="#pricing">Pricing</a>
+
           <a href="https://calendly.com/mariam-aden">Book a demo</a>
+
           <a href="https://daycares.littlenestfinder.com/search">Find childcare</a>
+
         </div>
+
       </div>
+
       <div>
+
         <div class="footer-col-title">Trust & legal</div>
+
         <div class="footer-links">
+
           <a href="https://daycares.littlenestfinder.com/privacy">Privacy policy</a>
+
           <a href="https://daycares.littlenestfinder.com/terms">Terms of service</a>
+
           <a href="https://daycares.littlenestfinder.com/ai-disclaimer">AI disclaimer</a>
+
           <a href="https://daycares.littlenestfinder.com/child-safety">Child safety</a>
+
           <a href="https://daycares.littlenestfinder.com/contact">Contact</a>
+
         </div>
+
       </div>
+
     </div>
+
     <div class="footer-bottom">
+
       <div class="footer-copy">© 2026 LittleNest AI · A Canadian platform built with care for families and educators.</div>
+
       <div class="footer-legal">
+
         <a href="https://daycares.littlenestfinder.com/privacy">Privacy</a>
+
         <a href="https://daycares.littlenestfinder.com/terms">Terms</a>
+
         <a href="https://daycares.littlenestfinder.com/contact">Contact</a>
+
       </div>
+
     </div>
+
   </div>
+
 </footer>
 
 <script>
+
 function hvTab(el, tab) {
+
   document.querySelectorAll('.hv-tab').forEach(t => t.classList.remove('active'));
+
   el.classList.add('active');
+
   ['doc','plan','qa'].forEach(t => {
+
     const p = document.getElementById('hv-'+t);
+
     if(p) p.style.display = t===tab ? 'block' : 'none';
+
   });
+
 }
 
 async function callAI(prompt, system) {
+
   const body = {model:'claude-sonnet-4-6',max_tokens:1000,messages:[{role:'user',content:prompt}]};
+
   if(system) body.system = system;
+
   const r = await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+
   const d = await r.json();
+
   return (d.content && d.content[0]) ? d.content[0].text : 'Error generating response. Please try again.';
+
 }
 
 async function hvGenerate() {
+
   const obs = document.getElementById('hv-obs').value.trim();
+
   const age = document.getElementById('hv-age').value;
+
   if(!obs) return;
+
   const out = document.getElementById('hv-output');
+
   out.innerHTML = '<div class="ai-bubble-label">AI learning story — educator reviews before sharing</div><span style="color:var(--sage);" class="loading-text">Writing</span>';
+
   const text = await callAI(`Write a warm, professional ECE learning story for a ${age} child based on this observation: "${obs}". Use reflective language. Connect to development. 3-4 sentences max.`, 'You are an expert early childhood documentation writer. Write in warm, professional language aligned with How Does Learning Happen? and ELECT Ontario.');
+
   out.innerHTML = `<div class="ai-bubble-label">AI learning story — educator reviews before sharing</div>${text}`;
+
 }
 
 async function hvPlan() {
+
   const out = document.getElementById('hv-plan-output');
+
   out.style.display = 'block';
+
   out.innerHTML = '<div class="ai-bubble-label">AI plan suggestion</div><span style="color:var(--sage);" class="loading-text">Generating</span>';
+
   const text = await callAI('Suggest 2 fresh activity ideas for a preschool room. Format: Activity name → 1 sentence description → ELECT connection. Keep under 80 words total.');
+
   out.innerHTML = `<div class="ai-bubble-label">AI plan suggestion</div>${text}`;
+
 }
 
 async function hvQA() {
+
   const inp = document.getElementById('hv-qa-input');
+
   const q = inp.value.trim();
+
   if(!q) return;
+
   inp.value = '';
+
   const thread = document.getElementById('hv-qa-thread');
+
   const id = 'qa-' + Date.now();
+
   thread.innerHTML += `<div style="background:var(--sage-light);border-radius:8px;padding:8px 11px;font-size:12px;color:var(--sage);margin-top:4px;">${q}</div>`;
+
   thread.innerHTML += `<div id="${id}" style="background:#fff;border:1px solid var(--stone-dark);border-radius:8px;padding:9px 12px;font-size:12px;color:var(--ink-mid);margin-top:4px;"><span class="loading-text" style="color:var(--sage);">Thinking</span></div>`;
+
   thread.scrollTop = thread.scrollHeight;
+
   const text = await callAI(q, 'You are an expert early childhood education assistant. Give practical, warm, evidence-based answers. 3-4 sentences max.');
+
   document.getElementById(id).textContent = text;
+
   thread.scrollTop = thread.scrollHeight;
+
 }
 
 async function demoGenerate() {
+
   const obs = document.getElementById('demo-obs').value.trim();
+
   const age = document.getElementById('demo-age').value;
+
   const type = document.getElementById('demo-type').value;
+
   if(!obs) {
+
     document.getElementById('demo-output').textContent = 'Please describe your observation above first.';
+
     return;
+
   }
+
   const out = document.getElementById('demo-output');
+
   out.className = 'demo-output';
+
   out.innerHTML = '<span class="loading-text" style="color:var(--sage);">Writing your learning story</span>';
+
   const text = await callAI(`Write a professional ECE ${type} for a ${age} child based on this observation: "${obs}". Use warm, reflective language aligned with How Does Learning Happen? and the ELECT framework. Connect to development domains. Write 4-6 sentences.`, 'You are an expert early childhood education documentation writer for Canadian childcare centers. Write professionally and warmly, always using language consistent with How Does Learning Happen? and ELECT Ontario. Educator always reviews before sharing with families.');
+
   out.textContent = text;
+
   document.getElementById('demo-actions').style.display = 'flex';
+
 }
 
 function copyDemo() {
+
   navigator.clipboard.writeText(document.getElementById('demo-output').textContent).then(() => alert('Copied to clipboard!'));
+
 }
+
 </script>
+
 </body>
+
 </html>
