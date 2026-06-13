@@ -1,0 +1,8 @@
+{
+  "name": "littlenest-ai",
+  "version": "1.0.0",
+  "description": "LittleNest AI - The AI co-pilot for early childhood educators",
+  "scripts": {
+    "build": "echo 'No build step needed'"
+  }
+}
