@@ -1,0 +1,21 @@
+# Secrets — never commit
+.env
+credentials.json
+token.json
+
+# Disposable intermediates
+.tmp/*
+!.tmp/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node / Vercel
+node_modules/
+.vercel/
+
+# OS
+.DS_Store

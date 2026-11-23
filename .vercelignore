@@ -1,0 +1,7 @@
+# WAT framework files are local automation, not part of the website deploy
+tools/
+workflows/
+.tmp/
+CLAUDE.md
+requirements.txt
+.env.example
